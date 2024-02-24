@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - override /avr/datamodule: ooo_deepiq
+avr:
+  problem: ooo
+  dataset: deepiq
+batch_size: 32
+learning_rate: 0.001
+monitor: val/loss

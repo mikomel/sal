@@ -1,0 +1,9 @@
+.env
+.idea/
+.pytest_cache/
+.vagrant/
+__pycache__/
+lightning_logs/
+outputs/
+venv/
+wandb/

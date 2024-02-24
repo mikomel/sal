@@ -1,0 +1,10 @@
+_target_: avr.model.scl_sal.OddOneOutSCLSAL
+num_hidden_channels: 32
+embedding_size: 128
+ff_dim: 80
+image_size: ${image_size}
+num_local_scattering_groups: 10
+num_global_scattering_groups: 80
+sal_num_rows: 6
+sal_num_cols: 60
+ffblock: residual-with-norm

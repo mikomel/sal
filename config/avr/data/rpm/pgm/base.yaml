@@ -1,0 +1,28 @@
+rule_encoder: ${PgmRuleEncoder:sparse}
+train:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/neutral
+  splits:
+    - ${DatasetSplit:TRAIN}
+  image_size: ${image_size}
+  do_shuffle_answers: True
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+val:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/neutral
+  splits:
+    - ${DatasetSplit:VAL}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+test:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/neutral
+  splits:
+    - ${DatasetSplit:TEST}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}

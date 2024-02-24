@@ -1,0 +1,10 @@
+_target_: avr.model.scar.OddOneOutSCAR
+num_hidden_channels: 32
+embedding_size: 128
+ff_dim: 80
+image_size: ${image_size}
+local_kernel_size: 10
+global_kernel_size: 20
+sal_num_rows: 6
+sal_num_cols: 60
+ffblock: pre-norm-residual

@@ -1,0 +1,3 @@
+_target_: avr.task.rpm.pgm.module.PgmModule
+target_predictor: ${TargetPredictor:MLP}
+rule_predictor: ${RulePredictor:SUM_ACT}

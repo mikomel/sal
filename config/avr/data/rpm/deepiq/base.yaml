@@ -1,0 +1,24 @@
+train:
+  _target_: avr.data.rpm.deepiq.dataset.DeepiqDataset
+  dataset_root_dir: ${datasets_dir}/mandziuk2019deepiq/rpm
+  splits:
+    - ${DatasetSplit:TRAIN}
+  image_size: ${image_size}
+  do_shuffle_answers: True
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+val:
+  _target_: avr.data.rpm.deepiq.dataset.DeepiqDataset
+  dataset_root_dir: ${datasets_dir}/mandziuk2019deepiq/rpm
+  splits:
+    - ${DatasetSplit:VAL}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+test:
+  _target_: avr.data.rpm.deepiq.dataset.DeepiqDataset
+  dataset_root_dir: ${datasets_dir}/mandziuk2019deepiq/rpm
+  splits:
+    - ${DatasetSplit:TEST}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  augmentor_factory: ${AugmentorFactory:IDENTITY}

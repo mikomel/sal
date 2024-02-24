@@ -1,0 +1,36 @@
+regime: ${VisualAnalogyRegime:NOVEL_DOMAIN_TRANSFER}
+answer_generation_strategy: ${AnswerGenerationStrategy:LEARNING_BY_CONTRASTING}
+rule_encoder: ${VAPRuleEncoder:sparse}
+train:
+  _target_: avr.data.vap.dataset.VisualAnalogyDataset
+  dataset_root_dir: ${datasets_dir}/${vap_dataset_name}
+  regime: ${avr.data.vap.hill2019learning.regime}
+  answer_generation_strategy: ${avr.data.vap.hill2019learning.answer_generation_strategy}
+  splits:
+    - ${DatasetSplit:TRAIN}
+  rule_encoder: ${avr.data.vap.hill2019learning.rule_encoder}
+  do_shuffle_answers: True
+  image_size: ${image_size}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+val:
+  _target_: avr.data.vap.dataset.VisualAnalogyDataset
+  dataset_root_dir: ${datasets_dir}/${vap_dataset_name}
+  regime: ${avr.data.vap.hill2019learning.regime}
+  answer_generation_strategy: ${avr.data.vap.hill2019learning.answer_generation_strategy}
+  splits:
+    - ${DatasetSplit:VAL}
+  rule_encoder: ${avr.data.vap.hill2019learning.rule_encoder}
+  do_shuffle_answers: False
+  image_size: ${image_size}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}
+test:
+  _target_: avr.data.vap.dataset.VisualAnalogyDataset
+  dataset_root_dir: ${datasets_dir}/${vap_dataset_name}
+  regime: ${avr.data.vap.hill2019learning.regime}
+  answer_generation_strategy: ${avr.data.vap.hill2019learning.answer_generation_strategy}
+  splits:
+    - ${DatasetSplit:TEST}
+  rule_encoder: ${avr.data.vap.hill2019learning.rule_encoder}
+  do_shuffle_answers: False
+  image_size: ${image_size}
+  augmentor_factory: ${AugmentorFactory:IDENTITY}

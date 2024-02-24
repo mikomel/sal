@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - override /avr/datamodule: rpm_deepiq
+avr:
+  problem: rpm
+  dataset: deepiq
+batch_size: 32
+learning_rate: 0.001
+num_answers: 5

@@ -1,0 +1,43 @@
+defaults:
+  - avr/model: scar
+  - avr/datamodule: rpm_raven
+  - avr/data/rpm/deepiq: base
+  - avr/data/rpm/raven: base
+  - avr/data/rpm/pgm: base
+  - avr/data/vap/hill2019learning: base
+  - avr/data/ooo/deepiq: base
+  - avr/task/rpm/deepiq: base
+  - avr/task/rpm/raven: base
+  - avr/task/rpm/pgm: base
+  - avr/task/vap/hill2019learning: base
+  - avr/task/ooo/deepiq: base
+  - avr/task/multitask/multitask: base
+  - pytorch_lightning/trainer: default
+  - torch/data_loader: default
+  - torch/optimizer: adam
+  - torch/scheduler: reduce_on_plateau
+  - _self_
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+avr:
+  problem: rpm
+  dataset: raven
+datasets_dir: /app/data
+model_dir: /app/models
+seed: 42
+batch_size: 128
+learning_rate: 0.001
+max_epochs: 100
+monitor: val/loss/target
+early_stopping_patience: 15
+image_size: 80
+num_answers: 2
+num_rules: 40
+num_workers: 8
+raven_dataset_name: I-RAVEN
+pgm_dataset_name: PGM-S
+vap_dataset_name: VAP-S
+wandb_log_model: True
+wandb_project: avr
+torch:
+  float32_matmul_precision: medium

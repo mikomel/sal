@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - override /avr/datamodule: multitask
+avr:
+  problem: multitask
+  dataset: multitask
+  tasks:
+    - ${Task:problem,rpm,dataset,deepiq,num_answers,5,num_rows,3,num_cols,3,target_predictor,${TargetPredictor:MLP}}
+    - ${Task:problem,rpm,dataset,raven,num_answers,8,num_rows,3,num_cols,3,target_predictor,${TargetPredictor:MLP},target_loss_ratio,1.0,num_rules,40,rule_predictor,${RulePredictor:SUM_ACT},rules_loss_ratio,10.0}
+    - ${Task:problem,rpm,dataset,pgm,num_answers,8,num_rows,3,num_cols,3,target_predictor,${TargetPredictor:MLP},target_loss_ratio,1.0,num_rules,50,rule_predictor,${RulePredictor:SUM_ACT},rules_loss_ratio,10.0}
+batch_size: 42
+learning_rate: 0.001
+monitor: val/loss
+num_answers: 8

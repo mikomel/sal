@@ -1,0 +1,10 @@
+.git/
+.idea/
+.pytest_cache/
+.vagrant/
+__pycache__/
+lightning_logs/
+outputs/
+tests/
+venv/
+wandb/

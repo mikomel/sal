@@ -1,0 +1,2 @@
+_target_: avr.task.ooo.deepiq.module.DeepIQModule
+target_predictor: ${TargetPredictor:MLP}

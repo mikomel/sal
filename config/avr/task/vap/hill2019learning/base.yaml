@@ -1,0 +1,3 @@
+_target_: avr.task.vap.hill2019learning.module.VapModule
+target_predictor: ${TargetPredictor:MLP}
+rule_predictor: ${RulePredictor:SUM_ACT}
